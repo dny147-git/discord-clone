@@ -22,7 +22,6 @@ export default function ServerChannel({
   role,
 }: ServerChannelProps) {
   const params = useParams();
-  console.log(params);
   const router = useRouter();
   const Icon = iconMap[channel.type];
   const { onOpen } = useModal();

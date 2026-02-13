@@ -41,9 +41,14 @@ export default function CreateServerModal() {
   const { isOpen, onClose, type } = useModal();
   const isModalOpen = isOpen && type === "createServer";
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     try {
-      await axios.post("/api/servers", values);
+      const { name, imageUrl } = values;
+      const file = JSON.parse(imageUrl);
+      const payload = {
+        name,
+        imageUrl: file.url,
+      };
+      await axios.post("/api/servers", payload);
       form.reset();
       router.refresh();
       onClose();

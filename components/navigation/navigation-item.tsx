@@ -1,9 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import ActionTooltip from "../action-tooltip";
-import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
+import ActionTooltip from "../action-tooltip";
 
 type NavigationItemProps = {
   id: string;
@@ -36,7 +36,7 @@ export default function NavigationItem({
         <div
           className={cn(
             "relative group flex mx-3 h-12 w-12 rounded-[24px] group-hover:rounded-3xl transition-all overflow-hidden",
-            params.serverId === id && "bg-primary/10 text-primary rounded-3xl",
+            params?.serverId === id && "bg-primary/10 text-primary rounded-3xl",
           )}
         >
           <Image fill src={imageUrl} alt="Channel" />

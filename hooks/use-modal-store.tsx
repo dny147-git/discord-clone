@@ -9,12 +9,16 @@ export type ModalType =
   | "leaveServer"
   | "deleteServer"
   | "deleteChannel"
-  | "editChannel";
+  | "editChannel"
+  | "messageFile";
 
 interface ModalData {
   server?: Server;
   channel?: Channel;
   channelType?: ChannelType;
+  apiUrl?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  query?: Record<string, any>;
 }
 interface ModalStore {
   type: ModalType | null;
