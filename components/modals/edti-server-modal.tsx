@@ -42,6 +42,7 @@ export default function EditServerModal() {
   const { isOpen, onClose, type, data } = useModal();
   const isModalOpen = isOpen && type === "editServer";
   const { server } = data;
+  console.log("server", data);
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     try {

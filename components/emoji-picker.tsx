@@ -24,7 +24,10 @@ export default function EmojiPicker({ onChange }: EmojiPickerProps) {
           data={data}
           theme={resolvedTheme}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          onEmojiSelect={(emoji: any) => onChange(emoji.native)}
+          onEmojiSelect={(emoji: any) => {
+            console.log(emoji);
+            onChange(emoji.native);
+          }}
         />
       </PopoverContent>
     </Popover>

@@ -15,14 +15,20 @@ export default function FileUpload({
   endpoint,
   value,
 }: FileUploadProps) {
-  // Parse file object nếu có
-  const file = value ? JSON.parse(value) : null;
+  let file;
 
+  try {
+    file = value ? JSON.parse(value) : null;
+  } catch {
+    file = value ? { url: value } : null;
+  }
+  console.log(file);
   const isPdf = file?.type === "application/pdf";
-  const isImage = file?.type?.startsWith("image/");
+  const isImage = file?.type?.startsWith("image/") || !isPdf;
 
   // ================= IMAGE =================
   if (file && isImage) {
+    console.log("isImage");
     return (
       <div className="relative h-20 w-20">
         <Image

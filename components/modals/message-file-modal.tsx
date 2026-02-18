@@ -50,7 +50,7 @@ export default function MessageFileModal() {
       });
       const { fileUrl } = values;
       const file = JSON.parse(fileUrl);
-      await axios.post(url, { fileUrl: file.url, content: file.url });
+      await axios.post(url, { fileUrl: fileUrl, content: file.url });
       form.reset();
       router.refresh();
       handleClose();
